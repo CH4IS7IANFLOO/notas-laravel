@@ -9,3 +9,6 @@ Route::get('/', function () {
 
 Route::resource('calificaciones', CalificacionController::class);
 Route::get('/estadisticas', [CalificacionController::class, 'estadisticas'])->name('calificaciones.estadisticas');
+
+//pair programming
+Route::get('/calificaciones/buscar', [CalificacionController::class, 'buscar'])->name('calificaciones.buscar');
