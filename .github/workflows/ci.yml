@@ -34,9 +34,10 @@ jobs:
 
     - name: Configure Database
       run: |
+        echo "DB_CONNECTION=sqlite" >> .env
+        echo "DB_DATABASE=:memory:" >> .env
+        php artisan config:clear
         php artisan config:cache
-        php artisan config:set database.default=sqlite
-        php artisan config:set database.connections.sqlite.database=:memory:
 
     - name: Run Migrations
       run: php artisan migrate --force
