@@ -140,15 +140,5 @@ El proyecto incluye un pipeline completo de CI/CD con:
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📝 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 👨‍💻 Autor
-
-**Christian Flores**
-- GitHub: [@CH4IS7IANFLOO](https://github.com/CH4IS7IANFLOO)
-
----
-
-⭐ Si este proyecto te ayuda, ¡dale una estrella!
