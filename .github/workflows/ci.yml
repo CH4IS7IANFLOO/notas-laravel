@@ -87,21 +87,5 @@ jobs:
         php artisan route:cache
         php artisan view:cache
 
-    - name: Create Build Artifact
-      run: |
-        tar -czf laravel-app.tar.gz \
-          --exclude='.git' \
-          --exclude='node_modules' \
-          --exclude='tests' \
-          --exclude='.github' \
-          --exclude='storage/logs/*' \
-          --exclude='storage/framework/cache/*' \
-          --exclude='vendor' \
-          .
-
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: laravel-app-build
-        path: laravel-app.tar.gz
-        retention-days: 30 
+    - name: Build Complete
+      run: echo "Laravel application built successfully" 
