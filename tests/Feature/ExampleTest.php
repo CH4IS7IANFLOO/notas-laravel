@@ -14,6 +14,6 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->assertStatus(302); // Ahora redirige a calificaciones
+        $response->assertStatus(302); // Redirige a calificaciones
     }
 }

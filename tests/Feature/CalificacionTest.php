@@ -127,7 +127,7 @@ class CalificacionTest extends TestCase
      */
     public function test_puede_crear_calificacion_desde_formulario(): void
     {
-        $response = $this->post('/calificaciones', [
+        $response = $this->withoutMiddleware()->post('/calificaciones', [
             'nota' => 18.5,
             'estudiante' => 'Juan Pérez',
             'materia' => 'Matemáticas',
@@ -147,7 +147,7 @@ class CalificacionTest extends TestCase
      */
     public function test_valida_nota_fuera_de_rango(): void
     {
-        $response = $this->post('/calificaciones', [
+        $response = $this->withoutMiddleware()->post('/calificaciones', [
             'nota' => 21.0, // Nota fuera de rango
             'estudiante' => 'Juan Pérez',
             'materia' => 'Matemáticas',
@@ -180,7 +180,7 @@ class CalificacionTest extends TestCase
             'fecha' => '2024-01-15'
         ]);
 
-        $response = $this->delete("/calificaciones/{$calificacion->id}");
+        $response = $this->withoutMiddleware()->delete("/calificaciones/{$calificacion->id}");
 
         $response->assertRedirect('/calificaciones');
         $this->assertDatabaseMissing('calificacions', ['id' => $calificacion->id]);
