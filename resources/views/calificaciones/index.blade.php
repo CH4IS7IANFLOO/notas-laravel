@@ -24,15 +24,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
-
+//pair programming
         <!-- Botones de acción -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <a href="{{ route('calificaciones.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Nueva Calificación
                 </a>
             </div>
-            <div class="col-md-6 text-end">
+            <div class="col-md-4 text-center">
+                <a href="{{ route('calificaciones.buscar') }}" class="btn btn-success">
+                    <i class="fas fa-search"></i> Búsqueda Avanzada
+                </a>
+            </div>
+            <div class="col-md-4 text-end">
                 <a href="{{ route('calificaciones.estadisticas') }}" class="btn btn-info">
                     <i class="fas fa-chart-bar"></i> Ver Estadísticas
                 </a>

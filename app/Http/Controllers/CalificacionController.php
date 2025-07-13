@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calificacion;
+use App\Services\BusquedaService;
 use Illuminate\Http\Request;
 
 class CalificacionController extends Controller
@@ -118,5 +119,16 @@ class CalificacionController extends Controller
             'sumaPares',
             'sumaImpares'
         ));
+    }
+//pair programming
+    /**
+     * Busca y filtra calificaciones
+     */
+    public function buscar(Request $request, BusquedaService $busquedaService)
+    {
+        $calificaciones = $busquedaService->buscar($request);
+        $estadisticas = $busquedaService->obtenerEstadisticas($request);
+
+        return view('calificaciones.buscar', compact('calificaciones', 'estadisticas'));
     }
 }
