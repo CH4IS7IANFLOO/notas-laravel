@@ -1,61 +1,154 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Sistema de Calificaciones Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![CI/CD Pipeline](https://github.com/CH4IS7IANFLOO/notas-laravel/workflows/Laravel%20CI%2FCD%20Pipeline/badge.svg)](https://github.com/CH4IS7IANFLOO/notas-laravel/actions)
+[![PHP Version](https://img.shields.io/badge/PHP-8.2+-blue.svg)](https://php.net)
+[![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## About Laravel
+## 🎯 Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sistema de gestión de calificaciones desarrollado en Laravel 12 que permite administrar notas de estudiantes con funcionalidades avanzadas de estadísticas y análisis de datos.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Características
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **CRUD Completo**: Crear, leer, actualizar y eliminar calificaciones
+- **Sistema de Estadísticas**: Análisis automático de notas pares e impares
+- **Validación Robusta**: Control de rangos de notas (1-20) con decimales
+- **Interfaz Moderna**: Diseño responsive con Bootstrap 5 y Font Awesome
+- **Testing Completo**: Cobertura de tests con PHPUnit
+- **CI/CD Pipeline**: Automatización con GitHub Actions
 
-## Learning Laravel
+## 🚀 Instalación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Requisitos
+- PHP 8.2 o superior
+- Composer
+- MySQL 8.0 o superior
+- Node.js (opcional, para assets)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Pasos de Instalación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/CH4IS7IANFLOO/notas-laravel.git
+cd notas-laravel
+```
 
-## Laravel Sponsors
+2. **Instalar dependencias**
+```bash
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Configurar variables de entorno**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-### Premium Partners
+4. **Configurar base de datos**
+```bash
+# Editar .env con tus credenciales de DB
+php artisan migrate
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. **Ejecutar el servidor**
+```bash
+php artisan serve
+```
 
-## Contributing
+## 📊 Funcionalidades
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Gestión de Calificaciones
+- Registro de notas con validación (1-20 puntos)
+- Información completa: estudiante, materia, fecha
+- Clasificación automática par/impar
 
-## Code of Conduct
+### Estadísticas Avanzadas
+- Conteo de notas pares e impares
+- Cálculo de sumas y promedios por tipo
+- Comparación entre categorías
+- Gráficos de distribución
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Interfaz de Usuario
+- Diseño responsive y moderno
+- Navegación intuitiva
+- Feedback visual inmediato
+- Confirmaciones de acciones
 
-## Security Vulnerabilities
+## 🧪 Testing
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+# Ejecutar todos los tests
+php artisan test
 
-## License
+# Ejecutar tests con cobertura
+php artisan test --coverage
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Ejecutar tests específicos
+php artisan test --filter CalificacionTest
+```
+
+## 🔧 Desarrollo
+
+### Estructura del Proyecto
+```
+app/
+├── Http/Controllers/CalificacionController.php
+├── Models/Calificacion.php
+└── Providers/
+database/
+├── migrations/2025_07_12_045411_create_calificacions_table.php
+└── seeders/
+resources/views/calificaciones/
+├── index.blade.php
+├── create.blade.php
+├── edit.blade.php
+├── show.blade.php
+└── estadisticas.blade.php
+tests/Feature/CalificacionTest.php
+```
+
+### Comandos Útiles
+```bash
+# Crear nueva calificación (seeder)
+php artisan make:seeder CalificacionSeeder
+
+# Limpiar cache
+php artisan config:clear
+php artisan cache:clear
+
+# Optimizar para producción
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+## 📈 CI/CD Pipeline
+
+El proyecto incluye un pipeline completo de CI/CD con:
+
+- **Tests Automatizados**: PHPUnit con cobertura
+- **Análisis de Código**: PHP CS Fixer y PHPStan
+- **Verificación de Seguridad**: Composer audit
+- **Build de Producción**: Optimización automática
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 👨‍💻 Autor
+
+**Christian Flores**
+- GitHub: [@CH4IS7IANFLOO](https://github.com/CH4IS7IANFLOO)
+
+---
+
+⭐ Si este proyecto te ayuda, ¡dale una estrella!
