@@ -187,6 +187,8 @@ class CalificacionTest extends TestCase
     }
 
 /* TDD */
+
+/* paso 1(RED) */
     /**
      * Prueba que se puede calcular el promedio por materia
      */
