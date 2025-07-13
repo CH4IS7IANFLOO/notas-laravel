@@ -185,4 +185,32 @@ class CalificacionTest extends TestCase
         $response->assertRedirect('/calificaciones');
         $this->assertDatabaseMissing('calificacions', ['id' => $calificacion->id]);
     }
+
+/* TDD */
+
+/* paso 1(RED) */
+    /**
+     * Prueba que se puede calcular el promedio por materia
+     */
+    public function test_puede_calcular_promedio_por_materia(): void
+    {
+        // Crear calificaciones para la misma materia
+        Calificacion::create(['nota' => 18.0, 'estudiante' => 'Ana', 'materia' => 'Matemáticas', 'fecha' => '2024-01-15']);
+        Calificacion::create(['nota' => 16.0, 'estudiante' => 'Carlos', 'materia' => 'Matemáticas', 'fecha' => '2024-01-16']);
+        Calificacion::create(['nota' => 20.0, 'estudiante' => 'María', 'materia' => 'Matemáticas', 'fecha' => '2024-01-17']);
+
+        $promedio = Calificacion::promedioPorMateria('Matemáticas');
+
+        $this->assertEquals(18.0, $promedio); // (18 + 16 + 20) / 3 = 18
+    }
+
+    /**
+     * Prueba que el promedio por materia devuelve 0 si no hay calificaciones
+     */
+    public function test_promedio_por_materia_devuelve_cero_si_no_hay_calificaciones(): void
+    {
+        $promedio = Calificacion::promedioPorMateria('MateriaInexistente');
+
+        $this->assertEquals(0, $promedio);
+    }
 }

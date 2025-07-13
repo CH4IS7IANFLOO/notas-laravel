@@ -49,4 +49,19 @@ class Calificacion extends Model
     {
         return self::whereRaw('nota % 2 = 1')->sum('nota');
     }
+/* TDD PASO 2(GREEN) */
+    /**
+     * Calcula el promedio de notas por materia
+     */
+    public static function promedioPorMateria($materia)
+    {
+        /* TDD PASO 3(REFACTOR) */
+        $resultado = self::where('materia', $materia)
+            ->selectRaw('AVG(nota) as promedio, COUNT(*) as total')
+            ->first();
+        
+        return $resultado && $resultado->total > 0 
+            ? round($resultado->promedio, 1) 
+            : 0;
+    }
 }
