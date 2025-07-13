@@ -96,6 +96,7 @@ jobs:
           --exclude='.github' \
           --exclude='storage/logs/*' \
           --exclude='storage/framework/cache/*' \
+          --exclude='vendor' \
           .
 
     - name: Upload Build Artifact
